@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   
+	/* colors */
+	--black: #000;
+	--white: #fff;
+	/* --red: ; */
+	--blue: blue;
+	/* --yellow: ; */
+	/* --orange: ; */
+	/* --purple: ; */
+	--green: green;
+
+	/* typography */
+	--headingFont: 'Roboto', sans-serif;
+	--headingFontSize: ;
+	--headingFontWeight: ;
+	--headingFontColor: ;
+	--headingLineSpacing: ;
+	--headingLetterSpacing: ;
+	--headingMarginBottom: ;
+
+	--subHeadingFont: ;
+	--subHeadingFontSize: ;
+	--subHeadingFontWeight: ;
+	--subHeadingFontColor: ;
+	--subHeadingLineSpacing: ;
+	--subHeadingLetterSpacing: ;
+	--subHeadingMarginBottom: ;
+
+	--bodyFont: ;
+	--bodyFontSize: ;
+	--bodyFontWeight: ;
+	--bodyFontColor: ;
+	--bodyLineSpacing: ;
+	--bodyLetterSpacing: ;
+	--bodyMarginBottom: ;
+
+	/* element properties */
+	--bg: ;
+	--headerBg: ;
+	--footerBg: ;
+	--shadow: ;
+	--border: ;
+	--borderRadius: ;
+
+	--linkColor: ;
+	--linkDecoration: ;
+	--linkFont: ;
+	--linkSize: ;
+	--linkLineHeight: ;
+
+	--buttonFill: ;
+	--buttonRadius: ;
+	--buttonBorder: ;
+	--buttonFont: ;
+	--buttonFontSize: ;
+
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: var(--buttonFontSize);
+}
