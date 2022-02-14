@@ -20,6 +20,7 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
+      description: 'A description of the page\'s intention'
     },
   ],
 }

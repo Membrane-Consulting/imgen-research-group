@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -9,61 +12,67 @@ body {
 	/* colors */
 	--black: #000;
 	--white: #fff;
-	/* --red: ; */
-	--blue: blue;
-	/* --yellow: ; */
-	/* --orange: ; */
-	/* --purple: ; */
-	--green: green;
+	--blue: #2276FC;
+	--dark-blue: #182035;
+	--green: #3AB667;
 
 	/* typography */
-	--headingFont: 'Roboto', sans-serif;
-	--headingFontSize: ;
-	--headingFontWeight: ;
-	--headingFontColor: ;
-	--headingLineSpacing: ;
-	--headingLetterSpacing: ;
-	--headingMarginBottom: ;
-
-	--subHeadingFont: ;
-	--subHeadingFontSize: ;
-	--subHeadingFontWeight: ;
-	--subHeadingFontColor: ;
-	--subHeadingLineSpacing: ;
-	--subHeadingLetterSpacing: ;
-	--subHeadingMarginBottom: ;
-
-	--bodyFont: ;
-	--bodyFontSize: ;
-	--bodyFontWeight: ;
-	--bodyFontColor: ;
-	--bodyLineSpacing: ;
-	--bodyLetterSpacing: ;
-	--bodyMarginBottom: ;
+	--fontFamily: 'Roboto', sans-serif;
 
 	/* element properties */
-	--bg: ;
-	--headerBg: ;
-	--footerBg: ;
-	--shadow: ;
-	--border: ;
-	--borderRadius: ;
+	--shadow: 0px -3px 22px 16px rgba(0, 0, 0, 0.16);
+}
 
-	--linkColor: ;
-	--linkDecoration: ;
-	--linkFont: ;
-	--linkSize: ;
-	--linkLineHeight: ;
+h1, h2, h3, h4, h5, h6, p {
+	margin-bottom: 1rem;
+}
 
-	--buttonFill: ;
-	--buttonRadius: ;
-	--buttonBorder: ;
-	--buttonFont: ;
-	--buttonFontSize: ;
+h1 {
+	font-family: var(--headingFont);
+	font-weight: 700;
+	font-size: clamp(2.5rem, calc(2rem + 2vw), 3.25rem);
+	color: var(--white);
+	margin-bottom: 10px;
+}
+h2 {
+	font-size: clamp(2rem, calc(2rem + 1vw), 2.5rem);
+}
+h3 {
+	font-size: clamp(1.5rem, calc(1.5rem + 1vw), 2.25rem);
+}
+h4 {
+	font-size: clamp(1.25rem, calc(1.25rem + 1vw), 1.75rem);
+}
 
+p {
+	font-size: clamp(1rem, calc(1rem + 2vw), 1.2rem);
+}
+
+a {
+	text-decoration: none;
+	color: var(--white);
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.3rem;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+blockquote {
+	font-size: clamp(1.25rem, calc(1.25rem + 1vw), 1.75rem);
+	margin: 1.25rem auto;
+	padding-left: 10px;
+	border-left: 3px solid var(--dark-blue);
+	max-width: 95%;
 }
 
 .btn {
-  padding: 10px 20px;
-  font-size: var(--buttonFontSize);
+  padding: 5px 10px;
+	border-radius: 5px;
+	background-color: var(--blue);
+}
+
+.container {
+	width: clamp(200px, 85vw, 950px);
+	margin: auto;
 }
