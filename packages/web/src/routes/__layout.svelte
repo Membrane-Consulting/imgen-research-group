@@ -29,7 +29,7 @@
     box-shadow: var(--shadow);
     background-color: var(--white);
     padding: 2rem;
-    min-height: 600px;
+    min-height: 450px;
     margin-bottom: 50px;
   }
 </style>

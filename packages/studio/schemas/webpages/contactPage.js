@@ -15,9 +15,9 @@ export default {
   ],
   fields: [
     {
-      name: 'content',
-      title: 'Page Content',
-      type: 'blockContent',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       group: 'content',
     },
     {

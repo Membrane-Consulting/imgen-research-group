@@ -18,7 +18,7 @@ export default {
       name: 'teamMembers',
       title: 'Team Members',
       type: 'array',
-      of: [{type: 'teamMember'}],
+      of: [{type: 'reference', to: {type: 'teamMember'} }],
       group: 'members',
       validation: Rule => Rule.min(1),
     },

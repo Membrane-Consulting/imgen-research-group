@@ -16,11 +16,17 @@ body {
 	--dark-blue: #182035;
 	--green: #3AB667;
 
+	--gray: #dce6f7;
+	--grey: var(--gray);
+
 	/* typography */
 	--fontFamily: 'Roboto', sans-serif;
 
 	/* element properties */
 	--shadow: 0px -3px 22px 16px rgba(0, 0, 0, 0.16);
+	--border: 2px solid var(--dark-blue);
+	--border-dashed: 2px dashed var(--dark-blue);
+	--overlay: #000000c7;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -54,8 +60,9 @@ a {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.3rem;
 }
-a:hover {
+a:hover, a:focus {
 	text-decoration: underline;
+	outline: none;
 }
 
 blockquote {
@@ -72,7 +79,52 @@ blockquote {
 	background-color: var(--blue);
 }
 
+.btn-hollow {
+	padding: 5px 10px;
+	border: var(--border);
+	background-color: var(--white);
+}
+
+.btn:hover, .btn-hollow:hover {
+	cursor: pointer;
+}
+
+.btn:focus, .btn-hollow:focus {
+	outline: 2px dashed var(--blue);
+	outline-offset: 2px;
+	text-decoration: none;
+}
+
+.btn-hollow:hover {
+	background-color: var(--grey);
+}
+
 .container {
 	width: clamp(200px, 85vw, 950px);
 	margin: auto;
+}
+
+.img-wrap {
+	max-width: 100%;
+	position: relative;
+}
+img {
+	max-width: 100%;
+}
+.img-border {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	bottom: 4px;
+	left: 3px;
+	border: 3px dashed var(--white);
+}
+
+.pos {
+	font-size: 1.2rem;
+	font-weight: 500;
+	max-width: 95%;
+	margin-bottom: 10px;
+	font-style: italic;
+	padding-bottom: 3px;
 }

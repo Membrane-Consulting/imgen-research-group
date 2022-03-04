@@ -5,12 +5,13 @@
 <header>
   <div class="container header-inner">
     <a href="/" class="logo-link">
-      <img src="/images/logo.svg" alt="Imgen Research Group Logo">
+      <img src="/images/logo.png" alt="Imgen Research Group Logo">
     </a>
     <nav>
       <ul>
         <li><a href="/team">Team</a></li>
         <li><a href="/publications">Publications</a></li>
+        <li><a href="/apply">Apply</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact" class="btn">Contact</a></li>
       </ul>
@@ -36,6 +37,7 @@
     gap: 15px;
     padding: 15px 10px;
     margin: auto;
+    padding-top: 2rem;
     z-index: 100;
     position: relative;
     border-bottom: 3px solid var(--white);
@@ -49,6 +51,11 @@
     line-height: 0;
   }
 
+  .logo-link:focus {
+    outline: 2px dashed var(--blue);
+    outline-offset: 2px;
+  }
+
   .header-filter {
     position: absolute;
     top: 0;
@@ -60,6 +67,14 @@
     z-index: 0;
   }
 
+  nav {
+    max-width: 100%;
+    overflow-y: scroll;
+    padding-top: -7px;
+    margin-bottom: -10px;
+    padding: 10px 0;
+  }
+
   nav ul {
     display: flex;
     align-items: center;
@@ -69,4 +84,12 @@
   ul {
     list-style: none;
   }
+
+  /* @media screen and (max-width: 530px){
+    nav:before{
+      content: '\2192';
+      font-size: .8rem;
+      color: var(--white);
+    }
+  } */
 </style>

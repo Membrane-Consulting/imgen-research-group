@@ -4,10 +4,21 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'pageTitle',
-      title: 'Page Title',
-      type: 'string',
+      name: 'textContent',
+      title: 'Intro Paragraph',
+      type: 'text',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'introImage',
+      title: 'Intro Image',
+      type: 'image',
+    },
+    {
+      name: 'featuredPublication',
+      title: 'Featured Publication',
+      type: 'reference',
+      to: [{type: 'publication'}]
     },
   ],
 }

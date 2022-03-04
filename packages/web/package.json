@@ -32,6 +32,8 @@
     "@portabletext/svelte": "^0.2.0",
     "@sanity/client": "^3.0.6",
     "@sanity/image-url": "^1.0.1",
-    "@sanity/types": "^2.27.0"
+    "@sanity/types": "^2.27.0",
+    "@sendgrid/mail": "^7.6.1",
+    "dotenv": "^16.0.0"
   }
 }

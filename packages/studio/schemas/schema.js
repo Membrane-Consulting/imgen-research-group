@@ -10,12 +10,14 @@ import category from './category'
 import post from './post'
 import author from './author'
 import seo from './seo'
+import settings from './settings'
 
 import aboutPage from './webpages/aboutPage'
 import contactPage from './webpages/contactPage'
 import homePage from './webpages/homePage'
 import publicationsPage from './webpages/publicationsPage'
 import teamPage from './webpages/teamPage'
+import applicationsPages from './webpages/applicationsPages'
 
 import publication from './publication'
 import teamMember from './teamMember'
@@ -29,6 +31,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // Webpages
     aboutPage,
+    applicationsPages,
     contactPage,
     homePage,
     publicationsPage,
@@ -39,6 +42,7 @@ export default createSchema({
     post,
     publication,
     teamMember,
-    seo
+    seo,
+    settings,
   ]),
 })

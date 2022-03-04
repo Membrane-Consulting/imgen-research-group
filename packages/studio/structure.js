@@ -1,6 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {
   BookIcon,
+  CogIcon,
   ComposeIcon,
   EarthGlobeIcon,
   RocketIcon,
@@ -65,7 +66,26 @@ export default () =>
                     .title('Team Page')
                 )
                 .icon(UserIcon),
+                S.listItem()
+                .title('Application Pages')
+                .child(
+                  S.editor()
+                    .schemaType('applicationsPages')
+                    .documentId('applicationsPages')
+                    .title('Application Pages')
+                )
+                .icon(UserIcon),
             ])
         )
         .icon(EarthGlobeIcon),
+      S.divider(),
+      S.listItem()
+            .title('Settings')
+            .child(
+              S.editor()
+                .schemaType('settings')
+                .documentId('settings')
+                .title('Settings')
+            )
+            .icon(CogIcon)
     ])

@@ -8,7 +8,7 @@
       <ul>
         <li><a href="/team">Team</a></li>
         <li><a href="/publications">Publications</a></li>
-        <li><a href="/apply">Apply for Internship</a></li>
+        <li><a href="/apply">Apply</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
