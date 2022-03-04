@@ -25,6 +25,8 @@
   }
 
   a {
+    display: block;
+    max-width: max-content;
     margin-left: auto;
   }
 </style>
