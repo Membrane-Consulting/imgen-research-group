@@ -11,6 +11,7 @@
         author-> {
           name
         },
+        "pdfURL": pdf.asset->url,
         pubDate,
         slug,
         title
@@ -26,24 +27,17 @@
   }
 </script>
 <script lang=ts>
-  import PortableText from '@portabletext/svelte';
+  import Publication from '$lib/components/Publication.svelte'
   export let data
 
   $:({ publications } = data)
 </script>
 
 {#each publications as text }
-  <article>
-    <h2>{text.title}</h2>
-    <p>{text.author.name}</p>
-    <PortableText blocks={text.abstract}/>
-  </article>
+  <Publication 
+    title={text.title}
+    pdf={text.pdfURL}
+    author={text.author.name}
+    abstract={text.abstract}
+  />
 {/each}
-
-<style>
-  article {
-    padding: 10px 0;
-    border-bottom: var(--border);
-    margin-bottom: 2rem;
-  }
-</style>

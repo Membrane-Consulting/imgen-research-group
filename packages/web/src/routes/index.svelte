@@ -12,6 +12,7 @@
         author-> {
           name
         },
+        "pdfURL": pdf.asset->url,
         pubDate,
         title
       }
@@ -23,12 +24,12 @@
   }
 </script>
 <script lang=ts>
-  import PortableText from '@portabletext/svelte'
+  import Publication from '$lib/components/Publication.svelte'
   export let data
 
   $:console.log(data)
   $:({textContent, introImage, featuredPublication} = data)
-  $:({ abstract, author } = featuredPublication)
+  $:({ abstract, author, pdfURL } = featuredPublication)
 </script>
 
 <section>
@@ -48,11 +49,12 @@
   
 </section>
 
-<article>
-  <h2>{featuredPublication.title}</h2>
-  <p>{author.name}</p>
-  <PortableText blocks={abstract}/>
-</article>
+<Publication 
+  title={featuredPublication.title}
+  pdf={pdfURL}
+  author={author.name}
+  {abstract}
+/>
 
 <style>
   section {
