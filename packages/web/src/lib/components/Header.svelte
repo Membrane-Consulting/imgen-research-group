@@ -1,7 +1,3 @@
-<script lang=ts>
-   
-</script>
-
 <header>
   <div class="container header-inner">
     <a href="/" class="logo-link">
@@ -85,11 +81,9 @@
     list-style: none;
   }
 
-  /* @media screen and (max-width: 530px){
-    nav:before{
-      content: '\2192';
-      font-size: .8rem;
-      color: var(--white);
+  @media screen and (min-width: 530px){
+    nav{
+      overflow-y: unset;
     }
-  } */
+  }
 </style>
