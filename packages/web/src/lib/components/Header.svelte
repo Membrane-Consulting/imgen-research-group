@@ -65,7 +65,7 @@
 
   nav {
     max-width: 100%;
-    overflow-y: scroll;
+    overflow-x: scroll;
     padding-top: -7px;
     margin-bottom: -10px;
     padding: 10px 0;
@@ -83,7 +83,7 @@
 
   @media screen and (min-width: 530px){
     nav{
-      overflow-y: unset;
+      overflow-x: unset;
     }
   }
 </style>
