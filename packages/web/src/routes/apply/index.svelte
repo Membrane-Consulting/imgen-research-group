@@ -1,12 +1,11 @@
 <script lang=ts context=module>
-  import { title } from '$lib/stores/title'
-  import { sanity } from '$lib/client'
-  
+  import { title, siteTitle } from '$lib/stores/title'
+  import { sanity, urlFor } from '$lib/client'
 
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ params, url, fetch, session, context }) {
+  export async function load() {
     title.set('Apply at Imgen')
     const query = `*[_type == 'applicationsPages'][0]`
     const res = await sanity.fetch(query)
@@ -19,12 +18,31 @@
   }
 </script>
 <script lang=ts>
-  import { urlFor } from '$lib/client'
-   export let data
+  import SvelteSeo from 'svelte-seo'
 
-   $:console.log(data)
-   $:({ internImage, staffImage} = data)
+  export let data
+
+  $:({ internImage, staffImage, seo} = data)
 </script>
+
+<SvelteSeo 
+  title='{$siteTitle} | {seo.title}'
+  description={seo.description}
+  openGraph={{
+    title: `${$siteTitle} | ${seo.title}`,
+    description: seo.description,
+    url: 'https://www.imgenresearchgroup.com/apply',
+    type: 'website',
+    images: [
+      {
+        url: urlFor(seo.image).width(850).height(650).url(),
+        width: 850,
+        height: 650,
+        alt: 'Imgen Research Group'
+      }
+     ]
+  }}
+/>
 
 <section>
   <div class="wrap" style="background-image: url({urlFor(internImage).url()});">
@@ -64,6 +82,7 @@
     justify-content: center;
     background-color: var(--overlay);
     font-size: 2rem;
+    text-align: center;
   }
 
   @media screen and (min-width: 900px){

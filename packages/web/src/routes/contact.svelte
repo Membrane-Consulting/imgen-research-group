@@ -1,9 +1,9 @@
 <script lang=ts context=module>
-  import { sanity } from '$lib/client'
-  import { title } from '$lib/stores/title'
-  title.set('Contact') 
-
+  import { sanity, urlFor } from '$lib/client'
+  import { title, siteTitle } from '$lib/stores/title'
+  
   export const load = async () => {
+    title.set('Contact') 
     const query = `*[_type == 'contactPage'][0]`
     const data = await sanity.fetch(query)
     return {
@@ -14,16 +14,35 @@
 <script lang=ts>
   import Image from '$lib/components/Image.svelte'
   import { page } from '$app/stores'
+  import SvelteSeo from 'svelte-seo'
 
   export let data
 
-  $: console.log(data)
-
   $: status = $page.url.searchParams.get("status")
+  $:({ image, seo } = data)
 </script>
 
+<SvelteSeo 
+  title='{$siteTitle} | {seo.title}'
+  description={seo.description}
+  openGraph={{
+    title: `${$siteTitle} | ${seo.title}`,
+    description: seo.description,
+    url: 'https://www.imgenresearchgroup.com/apply',
+    type: 'website',
+    images: [
+      {
+        url: urlFor(seo.image).width(850).height(650).url(),
+        width: 850,
+        height: 650,
+        alt: 'Imgen Research Group'
+      }
+     ]
+  }}
+/>
+
 <section>
-  <Image image={data.image} border={true}/>
+  <Image image={image} border={true}/>
 
   <form action="/api/contact" method="POST">
     <label for="name" hidden aria-hidden="false">Name</label>

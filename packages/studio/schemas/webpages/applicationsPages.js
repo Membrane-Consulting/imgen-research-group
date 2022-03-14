@@ -13,6 +13,10 @@ export default {
       name: 'staff',
       title: 'Staff',
     },
+    {
+      name: 'seo',
+      title: 'SEO',
+    }
   ],
   fields: [
     {
@@ -26,6 +30,12 @@ export default {
       title: 'Staff Cover Image',
       type: 'image',
       group: 'staff',
+    },
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+      group: 'seo',
     },
   ],
 }

@@ -7,9 +7,8 @@
       <ul>
         <li><a href="/team">Team</a></li>
         <li><a href="/publications">Publications</a></li>
-        <li><a href="/apply">Apply</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/contact" class="btn">Contact</a></li>
+        <li><a href="/apply" class="btn">Apply</a></li>
       </ul>
     </nav>
   </div>
@@ -74,7 +73,7 @@
   nav ul {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: clamp(5px, calc(5px + 1vw), 15px);
   }
 
   ul {

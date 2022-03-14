@@ -6,7 +6,7 @@
   export let author
   export let pdf
 
-  $:console.log(pdf)
+  // $:console.log(pdf)
 </script>
 
 <article>

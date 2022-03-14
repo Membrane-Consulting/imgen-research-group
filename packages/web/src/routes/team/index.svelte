@@ -1,6 +1,6 @@
 <script lang=ts context=module>
-  import { title } from '$lib/stores/title'
-  import { sanity } from '$lib/client'
+  import { title, siteTitle } from '$lib/stores/title'
+  import { sanity, urlFor } from '$lib/client'
 
   export const load = async () => {
     title.set('Our Team')
@@ -10,7 +10,8 @@
         slug,
         position,
         bio
-      }
+      },
+      seo
     }`
     const data = await sanity.fetch(query)
 
@@ -24,11 +25,31 @@
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
-  import { urlFor } from '$lib/client'
+  import SvelteSeo from 'svelte-seo'
+  
   export let data
 
-  $:({ teamMembers } = data)
+  $:({ teamMembers, seo } = data)
 </script>
+
+<SvelteSeo 
+  title='{$siteTitle} | {seo.title}'
+  description={seo.description}
+  openGraph={{
+    title: `${$siteTitle} | ${seo.title}`,
+    description: seo.description,
+    url: 'https://www.imgenresearchgroup.com/team',
+    type: 'website',
+    images: [
+      {
+        url: urlFor(seo.image).width(850).height(650).url(),
+        width: 850,
+        height: 650,
+        alt: 'Imgen Research Group'
+      }
+     ]
+  }}
+/>
 
 <section class="member-grid">
   {#each teamMembers as member}

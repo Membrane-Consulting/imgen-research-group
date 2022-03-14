@@ -1,6 +1,6 @@
 <script lang=ts context=module>
-  import { sanity } from '$lib/client'
-  import { title } from '$lib/stores/title'
+  import { sanity, urlFor } from '$lib/client'
+  import { title, siteTitle } from '$lib/stores/title'
   
 
   export const load = async ({ params }) => {
@@ -18,25 +18,37 @@
   }
 </script>
 <script lang=ts>
-  import {urlFor} from '$lib/client'
   import PortableText from '@portabletext/svelte'
+  import SvelteSeo from 'svelte-seo'
+
   export let member
 
-  $:console.log(member)
+  $:({ image, name, position, bio, slug} = member)
 </script>
+
+<SvelteSeo 
+  title='{$siteTitle} | {name}'
+  description='{name}, {position} at Imgen Research Group'
+  openGraph={{
+    title: `${$siteTitle} | ${name}`,
+    description: `${name}, ${position} at Imgen Research Group`,
+    url: `https://www.imgenresearchgroup.com/team/${slug.current}`,
+    type: 'website',
+  }}
+/>
 
 <section>
   <div class="img-wrap">
-    {#if member.image}
-      <img src={urlFor(member.image).url()} alt={member.name}/>
+    {#if image}
+      <img src={urlFor(image).url()} alt={name}/>
     {:else}
       <img src="/images/avatar.png" alt="A person's silouhette"/>
     {/if}
     <div class="img-border"></div>
   </div>
   <div class="content-wrap">
-    <p class="pos">{member.position}</p>
-    <PortableText blocks={member.bio}/>
+    <p class="pos">{position}</p>
+    <PortableText blocks={bio}/>
   </div>
 </section>
 

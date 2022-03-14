@@ -11,6 +11,10 @@ export default {
     {
       name: 'fields',
       title: 'Form Fields',
+    },
+    {
+      name: 'seo',
+      title: 'SEO'
     }
   ],
   fields: [
@@ -27,6 +31,12 @@ export default {
       of: [{ type: 'string' }],
       description: 'The options for "Message Subject"',
       group: 'fields',
+    },
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+      group: 'seo',
     },
   ],
 }

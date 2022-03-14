@@ -20,7 +20,8 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
-      description: 'A description of the page\'s intention'
+      description: 'A description of the page\'s intention',
+      validation: Rule => Rule.max(200),
     },
   ],
 }

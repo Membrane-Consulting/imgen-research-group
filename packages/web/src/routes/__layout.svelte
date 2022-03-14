@@ -1,3 +1,17 @@
+<script lang=ts context=module>
+  import { siteTitle } from '$lib/stores/title'
+  import { sanity } from '$lib/client'
+  /**
+  * @type {import('@sveltejs/kit').Load}
+  */
+  export async function load() {
+    const titleQuery = `*[_type == 'settings'][0]{ siteTitle }`
+    const titleData = await sanity.fetch(titleQuery)
+    siteTitle.set(titleData.siteTitle)
+
+    return { props: {} }
+  }
+</script>
 <script lang=ts>
   import './base.css'
   import Header from '$lib/components/Header.svelte'

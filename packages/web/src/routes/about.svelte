@@ -1,6 +1,6 @@
 <script lang=ts context=module>
-  import { sanity } from '$lib/client'
-  import { title } from '$lib/stores/title'
+  import { sanity, urlFor } from '$lib/client'
+  import { title, siteTitle } from '$lib/stores/title'
   title.set('About') 
 
   export const load = async () => {
@@ -8,22 +8,41 @@
     const data = await sanity.fetch(query)
 
     return {
-      props: {
-        data
-      }
+      props: { data }
     }
   }
 </script>
 <script lang=ts>
   import PortableText from '@portabletext/svelte'
   import ImageBlock from '$lib/components/ImageBlock.svelte'
+  import SvelteSeo from 'svelte-seo'
 
   export let data
-  $:console.log(data)
+
+  $:({ content, seo } = data)
 </script>
 
+<SvelteSeo 
+  title='{$siteTitle} | {seo.title}'
+  description={seo.description}
+  openGraph={{
+    title: `${$siteTitle} | ${seo.title}`,
+    description: seo.description,
+    url: 'https://www.imgenresearchgroup.com/about',
+    type: 'website',
+    images: [
+      {
+        url: urlFor(seo.image).width(850).height(650).url(),
+        width: 850,
+        height: 650,
+        alt: 'Imgen Research Group'
+      }
+     ]
+  }}
+/>
+
 <PortableText 
-  blocks={data.content}
+  blocks={content}
   serializers={{
     types: {
       image: ImageBlock,
