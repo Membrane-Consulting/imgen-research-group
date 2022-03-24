@@ -1,9 +1,9 @@
 <script lang=ts context=module>
   import { sanity, urlFor } from '$lib/client'
   import { title, siteTitle } from '$lib/stores/title'
-  title.set('About') 
 
   export const load = async () => {
+    title.set('About')
     const query = `*[_type == 'aboutPage'][0]`
     const data = await sanity.fetch(query)
 
